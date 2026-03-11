@@ -1,0 +1,19 @@
+services:
+  cs2-server:
+    image: ghcr.io/kus/cs2-modded-server:latest
+    container_name: cs2
+    restart: unless-stopped
+    environment:
+      - PORT=27015
+      - API_KEY=${API_KEY}
+      - STEAM_ACCOUNT=${STEAM_ACCOUNT}
+      - RCON_PASSWORD=${RCON_PASSWORD}
+      - TICKRATE=128
+      - MAXPLAYERS=16
+    ports:
+      - "27015:27015/tcp"
+      - "27015:27015/udp"
+      - "27020:27020/udp"
+    volumes:
+      - ./main_install:/home/steam/cs2:rw
+      - ./custom_overrides:/home/custom_files:rw
