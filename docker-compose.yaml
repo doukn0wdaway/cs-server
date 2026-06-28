@@ -10,6 +10,7 @@ services:
       - RCON_PASSWORD=${RCON_PASSWORD}
       - TICKRATE=128
       - MAXPLAYERS=16
+      - EXEC=on_boot.cfg
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
